@@ -21,6 +21,16 @@ defmodule DailyBot.Bot do
     answer msg, Server.del_from_list(id, t), bot: name, parse_mode: "Markdown"
   end
 
+  def handle({:command, "subscribe", %{chat: %{id: id}} = msg}, name, _) do
+    Daily.subscribe(id)
+    answer msg, "❤️ *Subscribed* to daily reminders! ❤️", bot: name, parse_mode: "Markdown"
+  end
+
+  def handle({:command, "unsubscribe", %{chat: %{id: id}} = msg}, name, _) do
+    Daily.unsubscribe(id)
+    answer msg, "*Unsubscribed* from daily reminders... 😢", bot: name, parse_mode: "Markdown"
+  end
+
   # Listener
   def handle({_, _, %{text: t, from: %{username: user}}}, _) when not is_nil(user) do
     [:hotpink, "[LISTENER] @#{user} -> #{t}"]

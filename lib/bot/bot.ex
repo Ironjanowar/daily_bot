@@ -6,7 +6,7 @@ defmodule DailyBot.Bot do
   use Telex.Dsl
 
   def handle({:command, "start", msg}, name, _) do
-    answer msg, "_Hello there!_\nReady for the daily spam?\nTomorrow at 9:00am I will send you your *TODO* list.", bot: name, parse_mode: "Markdown"
+    answer msg, "_Hello there!_\nReady for the daily spam?", bot: name, parse_mode: "Markdown"
   end
 
   def handle({:command, "todo", %{chat: %{id: id}}  =msg}, name, _) do
@@ -22,13 +22,11 @@ defmodule DailyBot.Bot do
   end
 
   def handle({:command, "subscribe", %{chat: %{id: id}} = msg}, name, _) do
-    Daily.subscribe(id)
-    answer msg, "❤️ *Subscribed* to daily reminders! ❤️", bot: name, parse_mode: "Markdown"
+    answer msg, Daily.subscribe(id), bot: name, parse_mode: "Markdown"
   end
 
   def handle({:command, "unsubscribe", %{chat: %{id: id}} = msg}, name, _) do
-    Daily.unsubscribe(id)
-    answer msg, "*Unsubscribed* from daily reminders... 😢", bot: name, parse_mode: "Markdown"
+    answer msg, Daily.unsubscribe(id), bot: name, parse_mode: "Markdown"
   end
 
   # Listener

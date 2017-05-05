@@ -8,9 +8,9 @@ defmodule Daily do
   end
 
   def init(:ok) do
-    case Redix.command(:redis, ~w()) do
-      [] -> ""
-      ids -> Enum.map(ids, fn id -> Process.send_after(self(), {:spam, id}, millis_to_next_day()) end)
+    case Redix.command(:redis, ~w(LRANGE daily 0 -1)) do
+      {:ok, []} -> ""
+      {:ok, ids} -> Enum.map(ids, fn id -> Process.send_after(self(), {:spam, id}, millis_to_next_day()) end)
     end
 
     {:ok, []}
@@ -22,12 +22,29 @@ defmodule Daily do
     Timex.diff(tomorrow, now, :milliseconds)
   end
 
+  def get_subscriptors() do
+    {:ok, list} = Redix.command(:redis, ~w(LRANGE daily 0 -1))
+    list
+  end
+
   def subscribe(id) do
-    Redix.command(:redis, ~w(LPUSH daily #{id}))
+    case Integer.to_string(id) in get_subscriptors() do
+      true -> "You are already subscribed! 😃"
+      false ->
+        Process.send_after(self(), {:spam, id}, millis_to_next_day())
+        Redix.command(:redis, ~w(LPUSH daily #{id}))
+        Logger.info "User #{id} subscribed to daily messages"
+        "❤️ *Subscribed* to daily reminders! ❤️"
+    end
   end
 
   def unsubscribe(id) do
-    Redix.command(:redis, ~w(LREM daily 1 #{id}))
+    case Integer.to_string(id) in get_subscriptors() do
+      true ->
+        Redix.command(:redis, ~w(LREM daily 1 #{id}))
+        "*Unsubscribed* from daily reminders... 😢"
+      false -> "You are not subscribed.\nDo you want to give it a try?\n/subscribe"
+    end
   end
 
   def handle_info({:spam, id}, state) do

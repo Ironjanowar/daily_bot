@@ -22,7 +22,7 @@ use Mix.Config
 #
 
 config :daily_bot,
-  token: "376323488:AAFLeXiTUGLMYQyNgVpQ0ghRJk3XulANIZE",
+  token: "374758388:AAGcDvDdkh4XVNPYTyUlBmZga60bQg3Vess",
   redis_host: "localhost",
   redis_port: 6379
 

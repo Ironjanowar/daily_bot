@@ -30,7 +30,7 @@ defmodule DailyBot.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:telex, git: "git@github.com:rockneurotiko/telex.git", tag: "0.1.2"},
+      {:telex, git: "git@github.com:rockneurotiko/telex.git", tag: "0.1.5"},
       {:timex, "~> 3.0"},
       {:distillery, "~> 1.3.0", runtime: false},
       {:bunt, "~> 0.1.0"},

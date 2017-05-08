@@ -8,6 +8,8 @@ defmodule Daily do
   end
 
   def init(:ok) do
+    Logger.info "Init Daily module"
+
     case Redix.command(:redis, ~w(LRANGE daily 0 -1)) do
       {:ok, []} -> ""
       {:ok, ids} -> Enum.map(ids, fn id -> Process.send_after(:daily, {:spam, id}, millis_to_next_day()) end)
@@ -53,8 +55,11 @@ defmodule Daily do
   # end
 
   def handle_info({:spam, id}, state) do
+    Logger.info "Sending daily reminder to #{id}"
     tomorrow = 86_400_000 # 24 hours
-    Telex.send_message(id, Server.get_list(id), bot: :daily_bot)
+    # message = Server.get_list(id) |> Daily.build_message
+    message = Server.get_list(id)
+    Telex.send_message(id, message, bot: :daily_bot, parse_mode: "Markdown")
     Process.send_after(:daily, {:spam, id}, tomorrow)
     {:noreply, state}
   end

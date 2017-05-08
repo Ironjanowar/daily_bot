@@ -2,6 +2,8 @@ defmodule DailyBot do
   use Application
   def start, do: start(1, 1)
 
+  require Logger
+
   def start(_, _) do
     import Supervisor.Spec
 
@@ -12,16 +14,17 @@ defmodule DailyBot do
       worker(Redix, [[host: rhost, port: rport], [name: :redis, backoff_max: 5_000]]),
       supervisor(Telex, []),
       supervisor(DailyBot.Bot, [:updates, Application.get_env(:daily_bot, :token)]),
-      worker(Server, [])
+      worker(Server, []),
+      worker(Daily, [])
     ]
 
     opts = [strategy: :one_for_one, name: DailyBot]
     case Supervisor.start_link(children, opts) do
       {:ok, _} = ok ->
-        IO.puts "Starting"
+        Logger.info "Starting DailyBot"
         ok
       error ->
-        IO.puts "Error"
+        Logger.error "Error starting DailyBot"
         error
     end
   end

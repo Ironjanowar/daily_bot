@@ -8,7 +8,7 @@ defmodule Server do
   end
 
   def init(:ok) do
-    Bunt.puts "Running..."
+    Logger.info "Init Server module"
     {:ok, []}
   end
 

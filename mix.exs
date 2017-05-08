@@ -35,6 +35,7 @@ defmodule DailyBot.Mixfile do
       {:distillery, "~> 1.3.0", runtime: false},
       {:bunt, "~> 0.1.0"},
       {:redix, ">= 0.0.0"}
+      # {:refraner, git: "git://github.com/Ironjanowar/Refraner.git"}
     ]
   end
 end

@@ -5,6 +5,8 @@ defmodule DailyBot.Bot do
   use Telex.Bot, name: @bot
   use Telex.Dsl
 
+  require Logger
+
   def handle({:command, "start", msg}, name, _) do
     answer msg, "_Hello there!_\nReady for the daily spam?", bot: name, parse_mode: "Markdown"
   end
@@ -27,5 +29,9 @@ defmodule DailyBot.Bot do
 
   def handle({:command, "unsubscribe", %{chat: %{id: id}} = msg}, name, _) do
     answer msg, Daily.unsubscribe(id), bot: name, parse_mode: "Markdown"
+  end
+
+  def handle({_, _, msg}, _, _) do
+    Logger.error "Not handlers for message -> #{msg}"
   end
 end

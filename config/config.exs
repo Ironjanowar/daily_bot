@@ -21,6 +21,11 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
+config :quantum, :daily_bot,
+  cron: [
+    "0 9 * * *": {Daily, :spam}
+  ]
+
 config :daily_bot,
   token: "374758388:AAGcDvDdkh4XVNPYTyUlBmZga60bQg3Vess",
   redis_host: "localhost",

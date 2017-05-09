@@ -31,10 +31,8 @@ defmodule DailyBot.Mixfile do
   defp deps do
     [
       {:telex, git: "git@github.com:rockneurotiko/telex.git", tag: "0.1.5"},
-      {:timex, "~> 3.0"},
-      {:distillery, "~> 1.3.0", runtime: false},
-      {:bunt, "~> 0.1.0"},
-      {:redix, ">= 0.0.0"}
+      {:redix, ">= 0.0.0"},
+      {:quantum, ">= 1.9.1"}
       # {:refraner, git: "git://github.com/Ironjanowar/Refraner.git"}
     ]
   end

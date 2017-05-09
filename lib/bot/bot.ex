@@ -28,15 +28,4 @@ defmodule DailyBot.Bot do
   def handle({:command, "unsubscribe", %{chat: %{id: id}} = msg}, name, _) do
     answer msg, Daily.unsubscribe(id), bot: name, parse_mode: "Markdown"
   end
-
-  # Listener
-  def handle({_, _, %{text: t, from: %{username: user}}}, _) when not is_nil(user) do
-    [:hotpink, "[LISTENER] @#{user} -> #{t}"]
-    |> Bunt.puts
-  end
-
-  def handle({_, _, %{text: t, from: %{first_name: user}}}, _) do
-    [:hotpink, "[LISTENER] @#{user} -> #{t}"]
-    |> Bunt.puts
-  end
 end

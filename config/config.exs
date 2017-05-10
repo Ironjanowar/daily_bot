@@ -26,6 +26,9 @@ config :quantum, :daily_bot,
     "0 9 * * *": {Daily, :spam}
   ]
 
+config :quantum,
+  timezone: "Europe/Madrid"
+
 config :daily_bot,
   token: "374758388:AAGcDvDdkh4XVNPYTyUlBmZga60bQg3Vess",
   redis_host: "localhost",

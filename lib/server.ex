@@ -64,7 +64,7 @@ defmodule Server do
   def handle_call({:del, user, elem}, _from, state) do
     Logger.info("Removing #{elem} from #{user}")
     case Redix.command(:redis, ~w(LREM #{user} 1 #{URI.encode(elem)})) do
-      {:ok, 0} -> {:reply, "*#{elem}* wasn't in your list!", state}
+      {:ok, 0} -> {:reply, "*#{elem}* is not in your list!", state}
       {:ok, _} ->
         Logger.info "#{elem} removed from #{user}"
         {:reply, "<b>#{elem}</b> removed!", state}

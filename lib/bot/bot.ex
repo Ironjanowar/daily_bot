@@ -12,7 +12,7 @@ defmodule DailyBot.Bot do
   end
 
   def handle({:command, "todo", %{chat: %{id: id}}  =msg}, name, _) do
-    answer msg, Server.get_list(id), bot: name, parse_mode: "HTML"
+    answer msg, Server.get_list(id), bot: name, parse_mode: "HTML", disable_web_page_preview: true
   end
 
   def handle({:command, "add", %{text: t, chat: %{id: id}} = msg}, name, _) do

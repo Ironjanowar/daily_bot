@@ -31,7 +31,7 @@ defmodule DailyBot.Bot do
     answer msg, Daily.unsubscribe(id), bot: name, parse_mode: "Markdown"
   end
 
-  def handle({_, _, msg}, _, _) do
-    Logger.error "Not handlers for message -> #{msg}"
+  def handle({_, _, %{text: t}}, _, _) do
+    Logger.error "Not handlers for message -> \"#{t}\""
   end
 end

@@ -21,10 +21,14 @@ defmodule Server do
     GenServer.call(:server, {:todo, user})
   end
 
+  def help() do
+    "Todo list bot!\nUse /todo to get your list\n/add [element] to add something\n/del [element] to remove something\n/subscribe to get your todo list every day at 9:00 AM! 🕘"
+  end
+
   def format_list(user) do
     case redis_get_list(user) do
       [] -> "Your list is empty!"
-      user_list -> List.foldr(user_list, "📜 *Here is your todo list:* 📜\n", fn x,acc -> acc <> " - " <> x <> "\n" end)
+      user_list -> List.foldr(user_list, "📜 <b>Here is your todo list:</b> 📜\n", fn x,acc -> acc <> " - " <> x <> "\n" end)
     end
   end
 
@@ -54,7 +58,7 @@ defmodule Server do
       {:ok, _} -> Logger.info "#{elem} added to #{user}"
       _ -> Logger.info "Could not add #{elem} from #{user}"
     end
-    {:reply, "*#{elem}* added.", state}
+    {:reply, "<b>#{elem}</b> added.", state}
   end
 
   def handle_call({:del, user, elem}, _from, state) do
@@ -63,7 +67,7 @@ defmodule Server do
       {:ok, 0} -> {:reply, "*#{elem}* wasn't in your list!", state}
       {:ok, _} ->
         Logger.info "#{elem} removed from #{user}"
-        {:reply, "*#{elem}* removed!", state}
+        {:reply, "<b>#{elem}</b> removed!", state}
       _ -> Logger.error "Could not remove #{elem} from #{user}"
     end
   end

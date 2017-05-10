@@ -35,7 +35,7 @@ defmodule DailyBot.Bot do
     Logger.error "Not handlers for message -> \"#{t}\""
   end
 
-  def handle({_, _, _}, _, _) do
-    Logger.error "Unhandled message"
+  def handle(m, _, _) do
+    Logger.error "Unhandled message: #{inspect m}"
   end
 end

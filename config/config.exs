@@ -23,7 +23,7 @@ use Mix.Config
 
 config :quantum, :daily_bot,
   cron: [
-    "0 10 * * *": {Daily, :spam}
+    "0 9 * * *": {Daily, :spam}
   ]
 
 config :quantum,

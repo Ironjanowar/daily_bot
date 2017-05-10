@@ -23,6 +23,23 @@ defmodule DailyBot.Bot do
     answer msg, Server.del_from_list(id, t), bot: name, parse_mode: "HTML"
   end
 
+  def handle({:command, "naisdel", %{chat: %{id: id}} = msg}, name, _) do
+    markup = Utils.generate_del_keyboard(id)
+
+    answer msg, "Select any element that you want to remove", reply_markup: markup, bot: name
+  end
+
+  def handle({:callback_query, %{data: "del:done"} = msg}, name, _) do
+    message = "Enought removing things!"
+    edit :inline, msg, message, bot: name, parse_mode: "HTML"
+  end
+
+  def handle({:callback_query, %{message: %{chat: %{id: id}}, data: elem} = msg}, name, _) do
+    message = Server.del_from_list(id, elem) <> "\n\nSelect any element that you want to remove"
+    markup = Utils.generate_del_keyboard(id)
+    edit :inline, msg, message, reply_markup: markup, bot: name, parse_mode: "HTML"
+  end
+
   def handle({:command, "subscribe", %{chat: %{id: id}} = msg}, name, _) do
     answer msg, Daily.subscribe(id), bot: name, parse_mode: "HTML"
   end

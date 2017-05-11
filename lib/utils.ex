@@ -14,6 +14,8 @@ defmodule Utils do
   end
 
   def generate_del_keyboard(id) do
+    Logger.info "Generating del keyboard for #{id}"
+
     Server.redis_get_list(id)
     |> List.foldl([], fn x,acc -> [[[text: x, callback_data: x]] | acc] end)
     |> Enum.reverse

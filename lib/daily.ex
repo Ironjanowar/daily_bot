@@ -36,7 +36,7 @@ defmodule Daily do
         # Process.send_after(:daily, {:spam, id}, millis_to_next_day())
         Redix.command(:redis, ~w(LPUSH daily #{id}))
         Logger.info "User #{id} subscribed to daily messages"
-        "❤️ *Subscribed* to daily reminders! ❤️"
+        "❤️ <b>Subscribed</b> to daily reminders! ❤️"
     end
   end
 
@@ -44,7 +44,7 @@ defmodule Daily do
     case Integer.to_string(id) in get_subscriptors() do
       true ->
         Redix.command(:redis, ~w(LREM daily 1 #{id}))
-        "*Unsubscribed* from daily reminders... 😢"
+        "<b>Unsubscribed</b> from daily reminders... 😢"
       false -> "You are not subscribed.\nDo you want to give it a try?\n/subscribe"
     end
   end
@@ -55,7 +55,8 @@ defmodule Daily do
   # end
 
   def build_message(message) do
-    "Well hello!\nHope you have a great day! 😃\n\n" <> message
+    refran = Refraner.get_all_refranes |> Enum.random
+    "Well hello!\nHope you have a great day!\nHere is the say of the day:\n - <i>" <> refran  <> "</i>\n\n" <> message
   end
 
   def spam() do

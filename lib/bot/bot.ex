@@ -8,7 +8,7 @@ defmodule DailyBot.Bot do
   require Logger
 
   def handle({:command, "start", msg}, name, _) do
-    answer msg, "_Hello there!_\nReady for the daily spam?", bot: name, parse_mode: "HTML"
+    answer msg, "<b>Hello there!</b>\nReady for the daily spam?", bot: name, parse_mode: "HTML"
   end
 
   def handle({:command, "todo", %{chat: %{id: id}}  =msg}, name, _) do
@@ -34,10 +34,24 @@ defmodule DailyBot.Bot do
     edit :inline, msg, message, bot: name, parse_mode: "HTML"
   end
 
-  def handle({:callback_query, %{message: %{chat: %{id: id}}, data: elem} = msg}, name, _) do
-    message = Server.del_from_list(id, elem) <> "\n\nSelect any element that you want to remove"
-    markup = Utils.generate_del_keyboard(id)
-    edit :inline, msg, message, reply_markup: markup, bot: name, parse_mode: "HTML"
+  def handle({:callback_query, %{message: %{chat: %{id: id}}, data: "del:elem:" <> elem} = msg}, name, _) do
+    if Server.naisdel_from_list(elem) do
+
+      markup = Utils.generate_del_keyboard(id)
+      case length(markup.inline_keyboard) do
+        1 ->
+          message = "Enought removing things!"
+          edit :inline, msg, message, bot: name, parse_mode: "HTML"
+        _ ->
+          edit :inline, msg, "<b>Element removed!</b>\n\nSelect any element that you want to remove", reply_markup: markup, parse_mode: "HTML", bot: name
+      end
+    else
+      Logger.error "Callback query matching error #{elem} (WTF NIGGI)"
+    end
+    # message = Server.naisdel_from_list(elem) <> "\n\nSelect any element that you want to remove"
+    # Utils.del_hash_from_redis(elem)
+    # markup = Utils.generate_del_keyboard(id)
+    # edit :inline, msg, message, reply_markup: markup, bot: name, parse_mode: "HTML"
   end
 
   def handle({:command, "subscribe", %{chat: %{id: id}} = msg}, name, _) do

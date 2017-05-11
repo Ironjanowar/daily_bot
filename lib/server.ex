@@ -43,6 +43,10 @@ defmodule Server do
     GenServer.call(:server, {:add, user, elem})
   end
 
+  def naisdel_from_list(elem) do
+    GenServer.call(:server, {:naisdel, elem})
+  end
+
   def del_from_list(user, elem) do
     GenServer.call(:server, {:del, user, elem})
   end
@@ -55,16 +59,40 @@ defmodule Server do
   def handle_call({:add, user, elem}, _from, state) do
     Logger.info("Adding #{elem} to #{user}")
     case Redix.command(:redis, ~w(LPUSH #{user} #{URI.encode(elem)})) do
-      {:ok, _} -> Logger.info "#{elem} added to #{user}"
+      {:ok, _} ->
+        Utils.save_hash(user, elem)
+        Logger.info "#{elem} added to #{user}"
       _ -> Logger.info "Could not add #{elem} from #{user}"
     end
     {:reply, "<b>#{elem}</b> added.", state}
   end
 
+  def handle_call({:naisdel, elem}, _from, state) do
+    Logger.info("Removing #{elem}")
+
+    r = with {:ok, id, text} <- Utils.get_from_hash(elem),
+         {:ok, _} <- Redix.command(:redis, ~w(LREM #{id} 1 #{URI.encode(text)})),
+         {:ok, _} <- Redix.command(:redis, ~w(DEL #{elem})) do
+      true
+    else
+      _ -> false
+    end
+
+    {:reply, r, state}
+    # del_from_list(id, text)
+    # case Utils.del_hash_from_redis(elem) do
+    #   {:ok, 0} -> {:reply, "<b>#{elem}</b> is not in your list!", state}
+    #   {:ok, _} ->
+    #     Logger.info "#{elem} removed"
+    #     {:reply, "<b>#{elem}</b> removed!", state}
+    #   _ -> Logger.error "Could not remove #{elem}"
+    # end
+  end
+
   def handle_call({:del, user, elem}, _from, state) do
     Logger.info("Removing #{elem} from #{user}")
     case Redix.command(:redis, ~w(LREM #{user} 1 #{URI.encode(elem)})) do
-      {:ok, 0} -> {:reply, "*#{elem}* is not in your list!", state}
+      {:ok, 0} -> {:reply, "<b>#{elem}</b> is not in your list!", state}
       {:ok, _} ->
         Logger.info "#{elem} removed from #{user}"
         {:reply, "<b>#{elem}</b> removed!", state}

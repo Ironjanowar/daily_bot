@@ -18,6 +18,7 @@ defmodule Utils do
 
     Server.redis_get_list(id)
     |> List.foldl([], fn x,acc -> [[[text: x, callback_data: x]] | acc] end)
+    |> Enum.reverse
     |> (fn x -> [[[text: "Done", callback_data: "del:done"]]] ++ x end).()
     |> Enum.reverse
     |> Utils.create_inline

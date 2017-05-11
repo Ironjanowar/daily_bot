@@ -65,7 +65,7 @@ defmodule Daily do
 
   def send_list(id) do
     message = Server.get_list(id) |> Daily.build_message
-    Telex.send_message(id, message, bot: :daily_bot, parse_mode: "Markdown")
+    Telex.send_message(id, message, bot: :daily_bot, parse_mode: "HTML")
   end
 
   # def handle_info({:spam, id}, state) do

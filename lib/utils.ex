@@ -14,8 +14,6 @@ defmodule Utils do
   end
 
   def generate_del_keyboard(id) do
-    ["a", "b", "c"] |> Enum.reverse |> (fn x -> ["d"] ++ x end).()  |> List.foldl([], fn x,acc -> [[[text: x, callback_data: x]] | acc] end)
-
     Server.redis_get_list(id)
     |> List.foldl([], fn x,acc -> [[[text: x, callback_data: x]] | acc] end)
     |> Enum.reverse

@@ -1,4 +1,6 @@
 defmodule Utils do
+  require Logger
+
   def create_inline_button(row) do
     row
     |> Enum.map(fn ops ->

@@ -39,6 +39,14 @@ defmodule Server do
     end
   end
 
+  def remove_hash_redis(key, text) do
+    hash = Utils.hash_md5(text)
+    case Redix.command(:redis, ~w(DEL #{key}:#{hash})) do
+      {:ok, _} -> :ok
+      _ -> :error
+    end
+  end
+
   def add_to_list(user, elem) do
     GenServer.call(:server, {:add, user, elem})
   end
@@ -57,6 +65,7 @@ defmodule Server do
   end
 
   def handle_call({:add, user, elem}, _from, state) do
+    elem = String.replace(elem, "<", "{") |> String.replace(">", "}")
     Logger.info("Adding #{elem} to #{user}")
     case Redix.command(:redis, ~w(LPUSH #{user} #{URI.encode(elem)})) do
       {:ok, _} ->
@@ -94,6 +103,7 @@ defmodule Server do
     case Redix.command(:redis, ~w(LREM #{user} 1 #{URI.encode(elem)})) do
       {:ok, 0} -> {:reply, "<b>#{elem}</b> is not in your list!", state}
       {:ok, _} ->
+        Server.remove_hash_redis(user, elem)
         Logger.info "#{elem} removed from #{user}"
         {:reply, "<b>#{elem}</b> removed!", state}
       _ -> Logger.error "Could not remove #{elem} from #{user}"

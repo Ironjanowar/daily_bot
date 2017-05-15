@@ -19,11 +19,11 @@ defmodule DailyBot.Bot do
     answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
   end
 
-  def handle({:command, "del", %{text: t, chat: %{id: id}} = msg}, name, _) do
+  def handle({:command, "forcedel", %{text: t, chat: %{id: id}} = msg}, name, _) do
     answer msg, Server.del_from_list(id, t), bot: name, parse_mode: "HTML"
   end
 
-  def handle({:command, "naisdel", %{chat: %{id: id}} = msg}, name, _) do
+  def handle({:command, "del", %{chat: %{id: id}} = msg}, name, _) do
     markup = Utils.generate_del_keyboard(id)
 
     answer msg, "Select any element that you want to remove", reply_markup: markup, bot: name

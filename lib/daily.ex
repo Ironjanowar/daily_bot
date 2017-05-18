@@ -55,7 +55,7 @@ defmodule Daily do
   # end
 
   def build_message(message) do
-    refran = Refraner.get_all_refranes |> Enum.random
+    refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
     "Well hello!\nHope you have a great day!\nHere is the say of the day:\n - <i>" <> refran  <> "</i>\n\n" <> message
   end
 

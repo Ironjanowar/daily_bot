@@ -52,4 +52,12 @@ defmodule Utils do
     |> (fn x -> x ++ [[[text: "Done", callback_data: "del:done"]]] end).()
     |> Utils.create_inline
   end
+
+  def donation_text() do
+    "Hi! If you enjoy this bot and want to donate a beer, click the button below.\nThank you so much for using this bot ❤️"
+  end
+
+  def generate_donation_button() do
+    Utils.create_inline [[[text: "Donate", url: "paypal.me/ironjanowar"]]]
+  end
 end

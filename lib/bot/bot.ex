@@ -66,6 +66,11 @@ defmodule DailyBot.Bot do
     answer msg, Server.help, bot: name, parse_mode: "HTML"
   end
 
+  def handle({:command, "donate", msg}, name, _) do
+    markup = Utils.generate_donation_button
+    answer msg, Utils.donation_text, bot: name, parse_mode: "HTML", reply_markup: markup
+  end
+
   def handle({_, _, %{text: t}}, _, _) do
     Logger.error "Not handlers for message -> \"#{t}\""
   end

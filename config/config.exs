@@ -30,7 +30,7 @@ config :quantum,
   timezone: "Europe/Madrid"
 
 config :daily_bot,
-  token: "374758388:AAGcDvDdkh4XVNPYTyUlBmZga60bQg3Vess",
+  token: "386470725:AAFM4zJu5zZrXJBPmlwzap5m86Ts87CrvoY",
   redis_host: "localhost",
   redis_port: 6379
 

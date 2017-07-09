@@ -9,20 +9,8 @@ defmodule Daily do
 
   def init(:ok) do
     Logger.info "Init Daily module"
-
-    # case Redix.command(:redis, ~w(LRANGE daily 0 -1)) do
-    #   {:ok, []} -> ""
-    #   {:ok, ids} -> Enum.map(ids, fn id -> Process.send_after(:daily, {:spam, id}, millis_to_next_day()) end)
-    # end
-
     {:ok, []}
   end
-
-  # defp millis_to_next_day() do
-  #   now = Timex.now("Europe/Madrid")
-  #   tomorrow = Timex.shift(Timex.beginning_of_day(now), days: 1, hours: 9)
-  #   Timex.diff(tomorrow, now, :milliseconds)
-  # end
 
   def get_subscriptors() do
     {:ok, list} = Redix.command(:redis, ~w(LRANGE daily 0 -1))
@@ -49,11 +37,6 @@ defmodule Daily do
     end
   end
 
-  # def build_message(message) do
-  #   refran = Refraner.get_all_refranes |> Enum.random
-  #   "Well hello! Here is the saying of the day!\n_" <> refran  <> "_\n\n" <> message
-  # end
-
   def build_message(message) do
     refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
     "Well hello!\nHope you have a great day!\nHere is the say of the day:\n - <i>" <> refran  <> "</i>\n\n" <> message
@@ -68,13 +51,4 @@ defmodule Daily do
     message = Server.get_list(id) |> Daily.build_message
     Telex.send_message(id, message, bot: :daily_bot, parse_mode: "HTML", disable_web_page_preview: true)
   end
-
-  # def handle_info({:spam, id}, state) do
-  #   Logger.info "Sending daily reminder to #{id}"
-  #   tomorrow = 86_400_000 # 24 hours
-  #   message = Server.get_list(id) |> Daily.build_message
-  #   Telex.send_message(id, message, bot: :daily_bot, parse_mode: "Markdown")
-  #   Process.send_after(:daily, {:spam, id}, tomorrow)
-  #   {:noreply, state}
-  # end
 end

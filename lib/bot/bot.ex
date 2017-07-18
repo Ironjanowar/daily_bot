@@ -2,7 +2,9 @@ defmodule DailyBot.Bot do
   @bot :daily_bot
   def bot(), do: @bot
 
-  use Telex.Bot, name: @bot
+  use Telex.Bot,
+    name: @bot,
+    middlewares: [Middleware.Listener]
   use Telex.Dsl
 
   require Logger

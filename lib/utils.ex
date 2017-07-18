@@ -60,4 +60,9 @@ defmodule Utils do
   def generate_donation_button() do
     Utils.create_inline [[[text: "Donate", url: "paypal.me/ironjanowar"]]]
   end
+
+  def extract_username(%{from: %{username: username}}), do: username
+
+  def extract_text(%{text: text}) when not is_nil(text), do: text
+  def extract_text(_), do: "[Message is not a text]"
 end

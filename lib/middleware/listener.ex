@@ -1,6 +1,7 @@
 defmodule Middleware.Listener do
   require Logger
 
+  def apply(%{update: %{message: nil}} = s), do: {:ok, s}
   def apply(%{update: %{message: m} = u} = s) do
     uid = Telex.Dsl.extract_id(u)
     username = Utils.extract_username(m)

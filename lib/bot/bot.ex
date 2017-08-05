@@ -13,8 +13,14 @@ defmodule DailyBot.Bot do
     answer msg, "<b>Hello there!</b>\nReady for the daily spam?", bot: name, parse_mode: "HTML"
   end
 
-  def handle({:command, "todo", %{chat: %{id: id}}  =msg}, name, _) do
-    answer msg, Server.get_list(id), bot: name, parse_mode: "HTML", disable_web_page_preview: true
+  def handle({:command, "todo", %{chat: %{id: id}}=msg}, name, _) do
+    case Server.get_list(id) do
+      {:empty, message} ->
+        answer msg, message, bot: name
+      {:ok, message} ->
+        markup = Utils.generate_hide_and_del_button()
+        answer msg, message, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: markup, bot: name
+    end
   end
 
   def handle({:command, "add", %{text: t, chat: %{id: id}} = msg}, name, _) do
@@ -27,13 +33,13 @@ defmodule DailyBot.Bot do
 
   def handle({:command, "del", %{chat: %{id: id}} = msg}, name, _) do
     markup = Utils.generate_del_keyboard(id)
-
     answer msg, "Select any element that you want to remove", reply_markup: markup, bot: name
   end
 
   def handle({:callback_query, %{data: "del:done"} = msg}, name, _) do
     message = "Enought removing things!"
-    edit :inline, msg, message, bot: name, parse_mode: "HTML"
+    markup = Utils.generate_show_button()
+    edit :inline, msg, message, bot: name, parse_mode: "HTML", reply_markup: markup
   end
 
   def handle({:callback_query, %{message: %{chat: %{id: id}}, data: "del:elem:" <> elem} = msg}, name, _) do
@@ -42,18 +48,15 @@ defmodule DailyBot.Bot do
       markup = Utils.generate_del_keyboard(id)
       case length(markup.inline_keyboard) do
         1 ->
+          show_list_markup = Utils.generate_show_button()
           message = "Enought removing things!"
-          edit :inline, msg, message, bot: name, parse_mode: "HTML"
+          edit :inline, msg, message, bot: name, parse_mode: "HTML", reply_markup: show_list_markup
         _ ->
           edit :inline, msg, "<b>Element removed!</b>\n\nSelect any element that you want to remove", reply_markup: markup, parse_mode: "HTML", bot: name
       end
     else
       Logger.error "Callback query matching error #{elem} (WTF NIGGI)"
     end
-    # message = Server.naisdel_from_list(elem) <> "\n\nSelect any element that you want to remove"
-    # Utils.del_hash_from_redis(elem)
-    # markup = Utils.generate_del_keyboard(id)
-    # edit :inline, msg, message, reply_markup: markup, bot: name, parse_mode: "HTML"
   end
 
   def handle({:command, "subscribe", %{chat: %{id: id}} = msg}, name, _) do
@@ -71,6 +74,26 @@ defmodule DailyBot.Bot do
   def handle({:command, "donate", msg}, name, _) do
     markup = Utils.generate_donation_button
     answer msg, Utils.donation_text, bot: name, parse_mode: "HTML", reply_markup: markup
+  end
+
+  def handle({:callback_query, %{data: "action:hide"}=msg}, name, _) do
+    markup = Utils.generate_show_button()
+    edit :inline, msg, "Hided TODO list 🙈", bot: name, reply_markup: markup
+  end
+
+  def handle({:callback_query, %{data: "action:show", message: %{chat: %{id: id}}}=msg}, name, _) do
+    case Server.get_list(id) do
+      {:empty, message} ->
+        edit :inline, msg, message, bot: name
+      {:ok, message} ->
+        markup = Utils.generate_hide_and_del_button()
+        edit :inline, msg, message, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: markup, bot: name
+    end
+  end
+
+  def handle({:callback_query, %{data: "action:delete:elements", message: %{chat: %{id: id}}}=msg}, name, _) do
+    markup = Utils.generate_del_keyboard(id)
+    edit :inline, msg, "Select any element that you want to remove", reply_markup: markup, bot: name
   end
 
   def handle({_, _, %{text: t}}, _, _) do

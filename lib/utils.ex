@@ -65,4 +65,12 @@ defmodule Utils do
 
   def extract_text(%{text: text}) when not is_nil(text), do: text
   def extract_text(_), do: "[Message is not a text]"
+
+  def generate_hide_and_del_button() do
+    Utils.create_inline [[[text: "Hide", callback_data: "action:hide"]], [[text: "Delete elements", callback_data: "action:delete:elements"]]]
+  end
+
+  def generate_show_button() do
+    Utils.create_inline [[[text: "Show", callback_data: "action:show"]]]
+  end
 end

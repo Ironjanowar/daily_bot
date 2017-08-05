@@ -27,8 +27,8 @@ defmodule Server do
 
   def format_list(user) do
     case redis_get_list(user) do
-      [] -> "Your list is empty!"
-      user_list -> List.foldr(user_list, "📜 <b>Here is your todo list:</b> 📜\n", fn x,acc -> acc <> " - " <> x <> "\n" end)
+      [] -> {:empty, "Your list is empty!"}
+      user_list -> {:ok, List.foldr(user_list, "📜 <b>Here is your todo list:</b> 📜\n", fn x,acc -> acc <> " - " <> x <> "\n" end)}
     end
   end
 
@@ -88,14 +88,6 @@ defmodule Server do
     end
 
     {:reply, r, state}
-    # del_from_list(id, text)
-    # case Utils.del_hash_from_redis(elem) do
-    #   {:ok, 0} -> {:reply, "<b>#{elem}</b> is not in your list!", state}
-    #   {:ok, _} ->
-    #     Logger.info "#{elem} removed"
-    #     {:reply, "<b>#{elem}</b> removed!", state}
-    #   _ -> Logger.error "Could not remove #{elem}"
-    # end
   end
 
   def handle_call({:del, user, elem}, _from, state) do

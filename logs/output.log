@@ -1,1 +1,1107 @@
 
+
+
+LOG [sáb ago  5 13:11:15 CEST 2017]
+
+==> connection
+Compiling 1 file (.ex)
+Generated connection app
+==> redix
+Compiling 9 files (.ex)
+Generated redix app
+==> gettext
+Compiling 1 file (.erl)
+Compiling 20 files (.ex)
+Generated gettext app
+==> poison
+Compiling 4 files (.ex)
+Generated poison app
+==> combine
+Compiling 6 files (.ex)
+Generated combine app
+==> maxwell
+Compiling 21 files (.ex)
+Generated maxwell app
+==> telex
+Compiling 21 files (.ex)
+Generated telex app
+==> tzdata
+Compiling 16 files (.ex)
+Generated tzdata app
+==> calendar
+Compiling 20 files (.ex)
+Generated calendar app
+==> timex
+Compiling 57 files (.ex)
+Generated timex app
+==> crontab
+Compiling 6 files (.ex)
+Generated crontab app
+==> quantum
+Compiling 8 files (.ex)
+Generated quantum app
+==> httpoison
+Compiling 2 files (.ex)
+Generated httpoison app
+==> floki
+Compiling 1 file (.erl)
+Compiling 19 files (.ex)
+Generated floki app
+==> refraner
+Compiling 1 file (.ex)
+Generated refraner app
+==> daily_bot
+Compiling 6 files (.ex)
+Generated daily_bot app
+
+13:11:40.893 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:41.406 [info]  Init Server module
+
+13:11:41.407 [info]  Init Daily module
+
+13:11:41.407 [info]  Starting DailyBot
+
+13:11:41.646 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:42.460 [info]  Cuwano [14977303] -> /help
+
+13:11:42.772 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:43.841 [debug] Tzdata polling for update.
+
+13:11:44.462 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:44.758 [debug] Tzdata polling shows the loaded tz database is up to date.
+
+13:11:46.996 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:50.795 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:11:55.797 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:00.803 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:05.808 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:10.813 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+13:12:14.877 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:15.201 [info]  Init Server module
+
+13:12:15.202 [info]  Init Daily module
+
+13:12:15.202 [info]  Starting DailyBot
+
+13:12:15.629 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:12:20 CEST 2017]
+
+
+13:12:21.970 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:22.313 [info]  Init Server module
+
+13:12:22.314 [info]  Init Daily module
+
+13:12:22.314 [info]  Starting DailyBot
+
+13:12:22.723 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:23.851 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:25.541 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:27.307 [info]  Cuwano [14977303] -> /help
+
+13:12:28.075 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:29.196 [info]  Cuwano [14977303] -> /todo
+
+13:12:29.223 [error] Process #PID<0.255.0> raised an exception
+** (Protocol.UndefinedError) protocol Enumerable not implemented for {:text, "Delete elements"}. This protocol is implemented for: Date.Range, File.Stream, Function, GenEvent.Stream, HashDict, HashSet, IO.Stream, List, Map, MapSet, Range, Stream, Timex.Interval
+    (elixir) /build/elixir/src/elixir-lang-elixir-117b2bf/lib/elixir/lib/enum.ex:1: Enumerable.impl_for!/1
+    (elixir) /build/elixir/src/elixir-lang-elixir-117b2bf/lib/elixir/lib/enum.ex:116: Enumerable.reduce/3
+    (elixir) lib/enum.ex:1832: Enum.reverse/1
+    (elixir) lib/enum.ex:2581: Enum.to_list/1
+    (elixir) lib/map.ex:174: Map.new_from_enum/1
+    (daily_bot) lib/utils.ex:7: anonymous fn/1 in Utils.create_inline_button/1
+    (elixir) lib/enum.ex:1255: Enum."-map/2-lists^map/1-0-"/2
+    (elixir) lib/enum.ex:1255: Enum."-map/2-lists^map/1-0-"/2
+
+13:12:31.876 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:36.878 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:39.658 [info]  Cuwano [14977303] -> /todo
+
+13:12:39.659 [error] Process #PID<0.266.0> raised an exception
+** (Protocol.UndefinedError) protocol Enumerable not implemented for {:text, "Delete elements"}. This protocol is implemented for: Date.Range, File.Stream, Function, GenEvent.Stream, HashDict, HashSet, IO.Stream, List, Map, MapSet, Range, Stream, Timex.Interval
+    (elixir) /build/elixir/src/elixir-lang-elixir-117b2bf/lib/elixir/lib/enum.ex:1: Enumerable.impl_for!/1
+    (elixir) /build/elixir/src/elixir-lang-elixir-117b2bf/lib/elixir/lib/enum.ex:116: Enumerable.reduce/3
+    (elixir) lib/enum.ex:1832: Enum.reverse/1
+    (elixir) lib/enum.ex:2581: Enum.to_list/1
+    (elixir) lib/map.ex:174: Map.new_from_enum/1
+    (daily_bot) lib/utils.ex:7: anonymous fn/1 in Utils.create_inline_button/1
+    (elixir) lib/enum.ex:1255: Enum."-map/2-lists^map/1-0-"/2
+    (elixir) lib/enum.ex:1255: Enum."-map/2-lists^map/1-0-"/2
+
+13:12:41.879 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:46.881 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:51.885 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:12:56.889 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:01.891 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:06.898 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:11.900 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:16.906 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:21.908 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:26.911 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:31.918 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:13:36 CEST 2017]
+
+
+13:13:37.660 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:38.010 [info]  Init Server module
+
+13:13:38.012 [info]  Init Daily module
+
+13:13:38.012 [info]  Starting DailyBot
+
+13:13:38.412 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:39.539 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:40.544 [info]  Cuwano [14977303] -> /todo
+
+13:13:40.544 [info]  Retrieving list to 14977303
+
+13:13:40.545 [info]  Init Server module
+
+13:13:40.584 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.248.0>): {:todo, 14977303}
+State: []
+Client #PID<0.248.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:18: DailyBot.Bot.handle/3
+
+
+13:13:41.229 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:43.762 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:47.563 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:52.565 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:13:57.567 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:02.571 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:07.573 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:12.576 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:17.578 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:22.581 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:27.584 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:32.586 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:37.589 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:42.592 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:47.595 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:52.598 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:14:57.601 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:02.605 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:07.607 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:12.610 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:17.613 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:22.616 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:27.618 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:32.621 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:37.624 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:42.627 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:47.630 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:52.634 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:15:57.636 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:02.639 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:07.642 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:12.645 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:17.648 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:22.650 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:27.653 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:32.655 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:37.657 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:42.659 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:47.661 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:52.663 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:16:57.665 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:02.668 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:07.671 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:12.673 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:17.676 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:22.679 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:27.681 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:32.684 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:37.687 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:42.689 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:47.692 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:52.695 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:17:57.698 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:02.701 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:07.704 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:12.707 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:17.709 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:22.712 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:27.714 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:32.717 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:37.720 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:42.722 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:47.724 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:52.727 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:18:57.729 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:02.731 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:07.734 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:12.736 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:17.738 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:22.740 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:27.742 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:32.743 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:37.744 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:42.747 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:47.749 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:52.751 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:19:57.754 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:02.756 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:07.758 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:12.760 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:17.761 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:22.763 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:27.765 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:32.767 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:37.768 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:42.770 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:47.773 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:52.775 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:20:57.777 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:02.780 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:07.782 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:09.994 [info]  Cuwano [14977303] -> /start
+
+13:21:12.785 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:16.577 [info]  Cuwano [14977303] -> /add meh
+
+13:21:16.577 [info]  Adding meh to 14977303
+
+13:21:16.577 [info]  Could not add meh from 14977303
+
+13:21:17.787 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:18.678 [info]  Cuwano [14977303] -> /todo
+
+13:21:18.678 [info]  Retrieving list to 14977303
+
+13:21:18.678 [info]  Init Server module
+
+13:21:18.679 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.728.0>): {:todo, 14977303}
+State: []
+Client #PID<0.728.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:18: DailyBot.Bot.handle/3
+
+
+13:21:21.732 [info]  Cuwano [14977303] -> /del
+
+13:21:21.732 [info]  Generating del keyboard for 14977303
+
+13:21:21.732 [error] Process #PID<0.733.0> raised an exception
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/utils.ex:50: Utils.generate_del_keyboard/1
+    (daily_bot) lib/bot/bot.ex:30: DailyBot.Bot.handle/3
+
+13:21:22.788 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:27.791 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:32.793 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:37.794 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:42.797 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:47.799 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:52.802 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:21:57.804 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:02.806 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:07.807 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:12.810 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:17.812 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:22.814 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:27.816 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:32.817 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:37.819 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:42.821 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:47.823 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:52.824 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:22:57.827 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:02.829 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:07.830 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:12.832 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:23:14 CEST 2017]
+
+
+13:23:15.870 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:16.199 [info]  Init Server module
+
+13:23:16.200 [info]  Init Daily module
+
+13:23:16.200 [info]  Starting DailyBot
+
+13:23:16.623 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:17.750 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:19.440 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:21.087 [info]  Cuwano [14977303] -> /todo
+
+13:23:21.087 [info]  Retrieving list to 14977303
+
+13:23:21.087 [info]  Init Server module
+
+13:23:21.123 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.251.0>): {:todo, 14977303}
+State: []
+Client #PID<0.251.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:18: DailyBot.Bot.handle/3
+
+
+13:23:21.974 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:25.775 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:30.777 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:35.780 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:40.783 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:45.786 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:23:47 CEST 2017]
+
+
+13:23:48.893 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:49.216 [info]  Init Server module
+
+13:23:49.218 [info]  Init Daily module
+
+13:23:49.218 [info]  Starting DailyBot
+
+13:23:49.645 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:50.773 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:51.911 [info]  Cuwano [14977303] -> /todo
+
+13:23:51.911 [info]  Retrieving list to 14977303
+
+13:23:51.911 [info]  Init Server module
+
+13:23:51.954 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.248.0>): {:todo, 14977303}
+State: []
+Client #PID<0.248.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:19: DailyBot.Bot.handle/3
+
+
+13:23:52.463 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:54.996 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:23:58.797 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:24:01 CEST 2017]
+
+
+13:24:02.961 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:03.296 [info]  Init Server module
+
+13:24:03.298 [info]  Init Daily module
+
+13:24:03.298 [info]  Starting DailyBot
+
+13:24:03.713 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:04.360 [info]  Cuwano [14977303] -> /todo
+
+13:24:04.360 [info]  Retrieving list to 14977303
+
+13:24:04.360 [info]  Init Server module
+
+13:24:04.399 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.247.0>): {:todo, 14977303}
+State: []
+Client #PID<0.247.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:19: DailyBot.Bot.handle/3
+
+
+13:24:04.840 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:06.530 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:09.063 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:10.578 [info]  Cuwano [14977303] -> /todo
+
+13:24:10.578 [info]  Retrieving list to 14977303
+
+13:24:10.578 [info]  Init Server module
+
+13:24:10.579 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.255.0>): {:todo, 14977303}
+State: []
+Client #PID<0.255.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:19: DailyBot.Bot.handle/3
+
+
+13:24:12.863 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:17.864 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:22.867 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:27.870 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:24:33 CEST 2017]
+
+
+13:24:34.237 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:34.592 [info]  Init Server module
+
+13:24:34.595 [info]  Init Daily module
+
+13:24:34.595 [info]  Starting DailyBot
+
+13:24:34.989 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:35.662 [info]  Cuwano [14977303] -> /todo
+
+13:24:35.662 [info]  Retrieving list to 14977303
+
+13:24:35.662 [info]  Init Server module
+
+13:24:35.690 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.246.0>): {:todo, 14977303}
+State: []
+Client #PID<0.246.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:19: DailyBot.Bot.handle/3
+
+
+13:24:36.116 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:37.807 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:39.539 [info]  Cuwano [14977303] -> /help
+
+13:24:40.341 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:44.141 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:49.146 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:54.148 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:24:59.155 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:04.158 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:25:06 CEST 2017]
+
+
+13:25:07.384 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:07.739 [info]  Init Server module
+
+13:25:07.741 [info]  Init Daily module
+
+13:25:07.741 [info]  Starting DailyBot
+
+13:25:08.136 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:09.263 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:09.458 [info]  Cuwano [14977303] -> /todo
+
+13:25:09.459 [info]  Retrieving list to 14977303
+
+13:25:09.459 [info]  Init Server module
+
+13:25:09.497 [error] GenServer :server terminating
+** (MatchError) no match of right hand side value: {:error, %Redix.ConnectionError{reason: :closed}}
+    (daily_bot) lib/server.ex:16: Server.redis_get_list/1
+    (daily_bot) lib/server.ex:29: Server.format_list/1
+    (daily_bot) lib/server.ex:64: Server.handle_call/3
+    (stdlib) gen_server.erl:636: :gen_server.try_handle_call/4
+    (stdlib) gen_server.erl:665: :gen_server.handle_msg/6
+    (stdlib) proc_lib.erl:247: :proc_lib.init_p_do_apply/3
+Last message (from #PID<0.247.0>): {:todo, 14977303}
+State: []
+Client #PID<0.247.0> is alive
+    (stdlib) gen.erl:169: :gen.do_call/4
+    (elixir) lib/gen_server.ex:771: GenServer.call/3
+    (daily_bot) lib/bot/bot.ex:19: DailyBot.Bot.handle/3
+
+
+13:25:10.953 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:13.487 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:17.286 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:22.291 [error] Failed to connect to Redis (localhost:6379): connection refused
+
+13:25:27.314 [info]  Reconnected to Redis (localhost:6379)
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:25:47 CEST 2017]
+
+
+13:25:48.755 [info]  Init Server module
+
+13:25:48.756 [info]  Init Daily module
+
+13:25:48.756 [info]  Starting DailyBot
+
+13:25:50.620 [info]  Cuwano [14977303] -> /todo
+
+13:25:50.620 [info]  Retrieving list to 14977303
+
+13:25:53.015 [error] Unhandled message: {:callback_query, %{chat_instance: "-8697280232700801638", data: "action:hide", from: %{first_name: "0x6d6568", id: 14977303, language_code: "es-ES", username: "Cuwano"}, id: "64327030461551094", message: %{chat: %{first_name: "0x6d6568", id: 14977303, type: "private", username: "Cuwano"}, date: 1501932286, from: %{first_name: "Iron Test Bot", id: 376323488, username: "irontest_bot"}, message_id: 669, text: "Your list is empty!"}}}
+
+13:26:17.458 [error] Unhandled message: {:callback_query, %{chat_instance: "-8697280232700801638", data: "action:delete:elements", from: %{first_name: "0x6d6568", id: 14977303, language_code: "es-ES", username: "Cuwano"}, id: "64327028923738608", message: %{chat: %{first_name: "0x6d6568", id: 14977303, type: "private", username: "Cuwano"}, date: 1501932286, from: %{first_name: "Iron Test Bot", id: 376323488, username: "irontest_bot"}, message_id: 669, text: "Your list is empty!"}}}
+
+13:26:23.216 [info]  Cuwano [14977303] -> /add mememe
+
+13:26:23.216 [info]  Adding mememe to 14977303
+
+13:26:23.238 [info]  Saving hash: 46756B989B1050A317258E6D5E8E9891 for 14977303
+
+13:26:23.239 [info]  mememe added to 14977303
+
+13:26:26.236 [info]  Cuwano [14977303] -> /add peontheu
+
+13:26:26.236 [info]  Adding peontheu to 14977303
+
+13:26:26.237 [info]  Saving hash: 9E4C68FEEFB3AF2F04CB0BA425B41FC2 for 14977303
+
+13:26:26.238 [info]  peontheu added to 14977303
+
+13:26:28.053 [info]  Cuwano [14977303] -> /todo
+
+13:26:28.053 [info]  Retrieving list to 14977303
+
+13:26:29.801 [error] Unhandled message: {:callback_query, %{chat_instance: "-8697280232700801638", data: "action:hide", from: %{first_name: "0x6d6568", id: 14977303, language_code: "es-ES", username: "Cuwano"}, id: "64327026685029570", message: %{chat: %{first_name: "0x6d6568", id: 14977303, type: "private", username: "Cuwano"}, date: 1501932324, entities: [%{length: 23, offset: 3, type: "bold"}], from: %{first_name: "Iron Test Bot", id: 376323488, username: "irontest_bot"}, message_id: 675, text: "📜 Here is your todo list: 📜\n - mememe\n - peontheu"}}}
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:28:02 CEST 2017]
+
+
+13:28:03.979 [info]  Init Server module
+
+13:28:03.980 [info]  Init Daily module
+
+13:28:03.980 [info]  Starting DailyBot
+
+13:28:16.144 [info]  Cuwano [14977303] -> /todo
+
+13:28:16.145 [info]  Retrieving list to 14977303
+
+13:28:20.420 [error] Unhandled message: {:callback_query, %{chat_instance: "-8697280232700801638", data: "action:show", from: %{first_name: "0x6d6568", id: 14977303, language_code: "es-ES", username: "Cuwano"}, id: "64327029638219229", message: %{chat: %{first_name: "0x6d6568", id: 14977303, type: "private", username: "Cuwano"}, date: 1501932432, edit_date: 1501932434, from: %{first_name: "Iron Test Bot", id: 376323488, username: "irontest_bot"}, message_id: 677, text: "Hided TODO list 🙈"}}}
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:29:48 CEST 2017]
+
+
+13:29:49.826 [info]  Init Server module
+
+13:29:49.828 [info]  Init Daily module
+
+13:29:49.828 [info]  Starting DailyBot
+
+13:30:06.402 [info]  Cuwano [14977303] -> /todo
+
+13:30:06.402 [info]  Retrieving list to 14977303
+
+13:30:08.965 [info]  Retrieving list to 14977303
+
+13:30:11.068 [error] Unhandled message: {:callback_query, %{chat_instance: "-8697280232700801638", data: "action:delete:elements", from: %{first_name: "0x6d6568", id: 14977303, language_code: "es-ES", username: "Cuwano"}, id: "64327029438158447", message: %{chat: %{first_name: "0x6d6568", id: 14977303, type: "private", username: "Cuwano"}, date: 1501932542, edit_date: 1501932544, entities: [%{length: 23, offset: 3, type: "bold"}], from: %{first_name: "Iron Test Bot", id: 376323488, username: "irontest_bot"}, message_id: 679, text: "📜 Here is your todo list: 📜\n - mememe\n - peontheu"}}}
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:30:28 CEST 2017]
+
+
+13:30:30.056 [info]  Init Server module
+
+13:30:30.058 [info]  Init Daily module
+
+13:30:30.058 [info]  Starting DailyBot
+
+13:30:31.532 [info]  Cuwano [14977303] -> /todo
+
+13:30:31.533 [info]  Retrieving list to 14977303
+
+13:30:34.810 [info]  Retrieving list to 14977303
+
+13:30:36.633 [info]  Generating del keyboard for 14977303
+
+13:30:38.988 [info]  Removing 14977303:9E4C68FEEFB3AF2F04CB0BA425B41FC2
+
+13:30:38.989 [info]  Generating del keyboard for 14977303
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:31:52 CEST 2017]
+
+
+13:31:53.873 [info]  Init Server module
+
+13:31:53.874 [info]  Init Daily module
+
+13:31:53.874 [info]  Starting DailyBot
+
+13:31:55.414 [info]  Cuwano [14977303] -> /todo
+
+13:31:55.414 [info]  Retrieving list to 14977303
+
+13:32:01.898 [info]  Cuwano [14977303] -> /add ethonethuo
+
+13:32:01.898 [info]  Adding ethonethuo to 14977303
+
+13:32:01.914 [info]  Saving hash: 1317A62E4FE6A7F20ACE1A74E524FB65 for 14977303
+
+13:32:01.914 [info]  ethonethuo added to 14977303
+
+13:32:04.497 [info]  Cuwano [14977303] -> /add aoesnaotheusa
+
+13:32:04.497 [info]  Adding aoesnaotheusa to 14977303
+
+13:32:04.497 [info]  Saving hash: C9D6BB58FCC6D6883A8FCF29BD424BC2 for 14977303
+
+13:32:04.498 [info]  aoesnaotheusa added to 14977303
+
+13:32:06.291 [info]  Cuwano [14977303] -> /add aoesnutahsoentu
+
+13:32:06.291 [info]  Adding aoesnutahsoentu to 14977303
+
+13:32:06.291 [info]  Saving hash: 6DD99CFA0D5E9BC26953DDA1157E8B12 for 14977303
+
+13:32:06.292 [info]  aoesnutahsoentu added to 14977303
+
+13:32:08.019 [info]  Cuwano [14977303] -> /todo
+
+13:32:08.019 [info]  Retrieving list to 14977303
+
+13:32:11.081 [info]  Retrieving list to 14977303
+
+13:32:13.021 [info]  Generating del keyboard for 14977303
+
+13:32:15.081 [info]  Removing 14977303:1317A62E4FE6A7F20ACE1A74E524FB65
+
+13:32:15.081 [info]  Generating del keyboard for 14977303
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:32:42 CEST 2017]
+
+
+13:32:44.129 [info]  Init Server module
+
+13:32:44.130 [info]  Init Daily module
+
+13:32:44.130 [info]  Starting DailyBot
+
+13:32:45.480 [info]  Cuwano [14977303] -> /todo
+
+13:32:45.480 [info]  Retrieving list to 14977303
+
+13:32:47.600 [info]  Generating del keyboard for 14977303
+
+13:32:49.614 [info]  Removing 14977303:6DD99CFA0D5E9BC26953DDA1157E8B12
+
+13:32:49.615 [info]  Generating del keyboard for 14977303
+
+13:32:51.117 [info]  Retrieving list to 14977303
+
+13:32:51.308 [info]  Retrieving list to 14977303
+
+13:32:53.866 [info]  Generating del keyboard for 14977303
+
+13:32:57.685 [info]  Retrieving list to 14977303
+
+13:32:59.082 [info]  Generating del keyboard for 14977303
+
+13:33:00.161 [info]  Removing 14977303:C9D6BB58FCC6D6883A8FCF29BD424BC2
+
+13:33:00.162 [info]  Generating del keyboard for 14977303
+
+13:33:00.923 [info]  Removing 14977303:46756B989B1050A317258E6D5E8E9891
+
+13:33:00.924 [info]  Generating del keyboard for 14977303
+
+13:33:02.209 [info]  Retrieving list to 14977303
+
+13:33:05.605 [info]  Retrieving list to 14977303
+
+13:33:07.857 [info]  Generating del keyboard for 14977303
+
+13:33:12.632 [info]  Retrieving list to 14977303
+
+13:37:00.558 [info]  Generating del keyboard for 14977303
+
+13:37:06.206 [info]  Retrieving list to 14977303
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:41:03 CEST 2017]
+
+
+13:41:05.360 [info]  Init Server module
+
+13:41:05.362 [info]  Init Daily module
+
+13:41:05.362 [info]  Starting DailyBot
+
+13:41:08.226 [info]  Cuwano [14977303] -> /todo
+
+13:41:08.226 [info]  Retrieving list to 14977303
+
+13:41:13.113 [info]  Cuwano [14977303] -> /add memememme
+
+13:41:13.114 [info]  Adding memememme to 14977303
+
+13:41:13.133 [info]  Saving hash: 8A239D2BDA428926C73D3A12EBFC7D5B for 14977303
+
+13:41:13.133 [info]  memememme added to 14977303
+
+13:41:15.074 [info]  Cuwano [14977303] -> /add oesnuthaosetuhao
+
+13:41:15.074 [info]  Adding oesnuthaosetuhao to 14977303
+
+13:41:15.075 [info]  Saving hash: 01E6D2CA8BBEF6DCC289FF7CBBD8149F for 14977303
+
+13:41:15.075 [info]  oesnuthaosetuhao added to 14977303
+
+13:41:16.746 [info]  Cuwano [14977303] -> /add oesuntahosentu
+
+13:41:16.746 [info]  Adding oesuntahosentu to 14977303
+
+13:41:16.747 [info]  Saving hash: 504A75756EBCC2BB9E543A10997DCFF6 for 14977303
+
+13:41:16.747 [info]  oesuntahosentu added to 14977303
+
+13:41:20.138 [info]  Cuwano [14977303] -> /add echechueao
+
+13:41:20.138 [info]  Adding echechueao to 14977303
+
+13:41:20.138 [info]  Saving hash: E3DE2198C32E30C887678990674DA56B for 14977303
+
+13:41:20.138 [info]  echechueao added to 14977303
+
+13:41:22.802 [info]  Cuwano [14977303] -> /add ewweehsnatheou
+
+13:41:22.802 [info]  Adding ewweehsnatheou to 14977303
+
+13:41:22.803 [info]  Saving hash: D6B547BD51B66D56A6003E8BA35E0F4E for 14977303
+
+13:41:22.803 [info]  ewweehsnatheou added to 14977303
+
+13:41:24.358 [info]  Cuwano [14977303] -> /todo
+
+13:41:24.358 [info]  Retrieving list to 14977303
+
+13:41:26.997 [info]  Retrieving list to 14977303
+
+13:41:55.622 [info]  Retrieving list to 14977303
+
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution
+
+
+LOG [sáb ago  5 13:43:02 CEST 2017]
+
+
+13:43:03.936 [info]  Init Server module
+
+13:43:03.937 [info]  Init Daily module
+
+13:43:03.937 [info]  Starting DailyBot
+
+13:43:06.039 [info]  Cuwano [14977303] -> /todo
+
+13:43:06.040 [info]  Retrieving list to 14977303
+
+13:43:09.830 [info]  Retrieving list to 14977303
+
+13:43:11.718 [info]  Generating del keyboard for 14977303
+
+13:43:13.444 [info]  Removing 14977303:01E6D2CA8BBEF6DCC289FF7CBBD8149F
+
+13:43:13.445 [info]  Generating del keyboard for 14977303
+
+13:43:15.694 [info]  Removing 14977303:504A75756EBCC2BB9E543A10997DCFF6
+
+13:43:15.695 [info]  Generating del keyboard for 14977303
+
+13:43:18.293 [info]  Retrieving list to 14977303
+
+13:43:21.123 [info]  Retrieving list to 14977303
+
+13:43:22.128 [info]  Generating del keyboard for 14977303
+
+13:43:24.859 [info]  Retrieving list to 14977303
+
+13:43:26.570 [info]  Generating del keyboard for 14977303
+
+13:43:27.803 [info]  Removing 14977303:E3DE2198C32E30C887678990674DA56B
+
+13:43:27.806 [info]  Generating del keyboard for 14977303
+
+13:43:28.734 [info]  Removing 14977303:D6B547BD51B66D56A6003E8BA35E0F4E
+
+13:43:28.735 [info]  Generating del keyboard for 14977303
+
+13:43:29.335 [info]  Removing 14977303:8A239D2BDA428926C73D3A12EBFC7D5B
+
+13:43:29.335 [info]  Generating del keyboard for 14977303
+
+13:43:30.881 [info]  Retrieving list to 14977303

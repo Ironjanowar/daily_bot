@@ -42,13 +42,22 @@ defmodule Daily do
     "Well hello!\nHope you have a great day!\nHere is the say of the day:\n - <i>" <> refran  <> "</i>\n\n" <> message
   end
 
+  def build_empty_message() do
+    refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
+    "Your list is empty! But here you have a say :D\n\n<i>" <> refran <> "</i>"
+  end
+
   def spam() do
     Logger.info "Sending daily reminders"
     Daily.get_subscriptors |> Enum.map(&Daily.send_list/1)
   end
 
   def send_list(id) do
-    message = Server.get_list(id) |> Daily.build_message
+    message = case Server.get_list(id) do
+                {:ok, list} -> list |> Daily.build_message
+                {:empty, _} -> Daily.build_empty_message
+    end
+    # message = list |> Daily.build_message
     Telex.send_message(id, message, bot: :daily_bot, parse_mode: "HTML", disable_web_page_preview: true)
   end
 end

@@ -37,6 +37,7 @@ defmodule DailyBot.Bot do
 
   # Add second step
   def handle(_, name, %{is_answer: true, update: %{message: %{text: t, chat: %{id: id}}} = msg}) do
+    Middleware.ChatStep.remove_cid(id)
     Logger.info "Add second step for #{id}, answered: #{t}"
     answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
   end

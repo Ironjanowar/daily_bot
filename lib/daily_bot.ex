@@ -15,7 +15,8 @@ defmodule DailyBot do
       supervisor(Telex, []),
       supervisor(DailyBot.Bot, [:updates, Application.get_env(:daily_bot, :token)]),
       worker(Server, []),
-      worker(Daily, [])
+      worker(Daily, []),
+      worker(Middleware.ChatStep, [])
     ]
 
     opts = [strategy: :one_for_one, name: DailyBot]

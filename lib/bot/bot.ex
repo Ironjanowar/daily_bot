@@ -4,7 +4,10 @@ defmodule DailyBot.Bot do
 
   use Telex.Bot,
     name: @bot,
-    middlewares: [Middleware.Listener]
+    middlewares: [
+      Middleware.Listener,
+      Middleware.ChatStep
+    ]
   use Telex.Dsl
 
   require Logger
@@ -23,7 +26,18 @@ defmodule DailyBot.Bot do
     end
   end
 
+  def handle({:command, "add", %{text: "", chat: %{id: cid}} = msg}, name, _) do
+    Middleware.ChatStep.save_cid(cid)
+    answer msg, "What do you want to add?", bot: name, reply_markup: %Telex.Model.ForceReply{force_reply: true}
+  end
+
   def handle({:command, "add", %{text: t, chat: %{id: id}} = msg}, name, _) do
+    answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
+  end
+
+  # Add second step
+  def handle(_, name, %{is_answer: true, update: %{message: %{text: t, chat: %{id: id}}} = msg}) do
+    Logger.info "Add second step for #{id}, answered: #{t}"
     answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
   end
 

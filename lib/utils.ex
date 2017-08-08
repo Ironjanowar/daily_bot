@@ -62,6 +62,7 @@ defmodule Utils do
   end
 
   def extract_username(%{from: %{username: username}}), do: username
+  def extract_username(_), do: "No username"
 
   def extract_text(%{text: text}) when not is_nil(text), do: text
   def extract_text(_), do: "[Message is not a text]"

@@ -26,9 +26,9 @@ defmodule DailyBot.Bot do
     end
   end
 
-  def handle({:command, "add", %{text: "", chat: %{id: cid}} = msg}, name, _) do
+  def handle({:command, "add", %{text: "", chat: %{id: cid}, message_id: mid} = msg}, name, _) do
     Middleware.ChatStep.save_cid(cid)
-    answer msg, "What do you want to add?", bot: name, reply_markup: %Telex.Model.ForceReply{force_reply: true}
+    answer msg, "What do you want to add?", bot: name, reply_markup: %Telex.Model.ForceReply{force_reply: true, selective: true}, reply_to_message_id: mid
   end
 
   def handle({:command, "add", %{text: t, chat: %{id: id}} = msg}, name, _) do

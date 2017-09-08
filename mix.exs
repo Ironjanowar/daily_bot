@@ -32,7 +32,6 @@ defmodule DailyBot.Mixfile do
     [
       {:redix, ">= 0.0.0"},
       {:quantum, ">= 1.9.1"},
-      {:refraner, git: "https://github.com/Ironjanowar/Refraner.git"},
       {:telex, git: "https://github.com/rockneurotiko/telex.git", tag: "0.1.7"}
     ]
   end

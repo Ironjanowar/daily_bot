@@ -33,19 +33,22 @@ defmodule Daily do
       {:ok, 1} ->
         "<b>Unsubscribed</b> from daily reminders... 😢"
       {:ok, 0} ->
-	"You are not subscribed.\nDo you want to give it a try?\n/subscribe"
+        "You are not subscribed.\nDo you want to give it a try?\n/subscribe"
     end
   end
 
-  def build_message(message) do
-    refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
-    "Well hello!\nHope you have a great day!\nHere is the say of the day:\n - <i>" <> refran  <> "</i>\n\n" <> message
-  end
+  # def build_message(message) do
+  #   #refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
+  #   "Well hello!\nHope you have a great day!\n\n" <> message
+  # end
 
-  def build_empty_message() do
-    refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
-    "Your list is empty! But here you have a say :D\n\n<i>" <> refran <> "</i>"
-  end
+  # def build_empty_message() do
+  #   #refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
+  #   "Your list is empty!"
+  # end
+
+  def build_message({:ok, message}), do: "Well hello!\nHope you have a great day!\n\n" <> message
+  def build_message({:empty, _}), do: "Your list is empty!"
 
   def spam() do
     Logger.info "Sending daily reminders"
@@ -53,10 +56,8 @@ defmodule Daily do
   end
 
   def send_list(id) do
-    message = case Server.get_list(id) do
-                {:ok, list} -> list |> Daily.build_message
-                {:empty, _} -> Daily.build_empty_message
-    end
+    message = id |> Server.get_list |> Daily.build_message
+
     # message = list |> Daily.build_message
     Telex.send_message(id, message, bot: :daily_bot, parse_mode: "HTML", disable_web_page_preview: true)
   end

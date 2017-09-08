@@ -21,13 +21,13 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
-config :quantum, :daily_bot,
-  cron: [
-    "0 9 * * *": {Daily, :spam}
+config :daily_bot, DailyBot.Scheduler,
+  timezone: "Europe/Madrid",
+  jobs: [
+    [name: "Daily lovely spam schedule",
+     schedule: {:cron, "* 9 * * *"},
+    task: {Daily, :spam, []}]
   ]
-
-config :quantum,
-  timezone: "Europe/Madrid"
 
 config :daily_bot,
   token: "386470725:AAFM4zJu5zZrXJBPmlwzap5m86Ts87CrvoY",

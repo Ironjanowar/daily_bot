@@ -10,10 +10,12 @@ defmodule DailyBot do
     rhost = Telex.Config.get(:daily_bot, :redis_host, "localhost")
     rport = Telex.Config.get_integer(:daily_bot, :redis_port, 6379)
 
+    token = Telex.Config.get(:daily_bot, :token)
+
     children = [
       worker(Redix, [[host: rhost, port: rport], [name: :redis, backoff_max: 5_000]]),
       supervisor(Telex, []),
-      supervisor(DailyBot.Bot, [:updates, Application.get_env(:daily_bot, :token)]),
+      supervisor(DailyBot.Bot, [:updates, token]),
       worker(Server, []),
       worker(Daily, []),
       worker(Middleware.ChatStep, []),

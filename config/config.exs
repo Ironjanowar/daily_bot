@@ -30,7 +30,7 @@ config :daily_bot, DailyBot.Scheduler,
   ]
 
 config :daily_bot,
-  token: "386470725:AAFM4zJu5zZrXJBPmlwzap5m86Ts87CrvoY",
+  token: {:system, "DAILY_BOT_TOKEN"},
   redis_host: "localhost",
   redis_port: 6379
 

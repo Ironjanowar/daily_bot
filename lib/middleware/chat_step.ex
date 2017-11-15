@@ -18,12 +18,9 @@ defmodule Middleware.ChatStep do
 
   def apply(%{update: %{message: %{chat: %{id: cid}, text: t}}} = s) do
     Logger.info "Checking if message '#{t}' is an expected answer"
-    if cid in get_cids() do
-      {:ok, Map.put(s, :is_answer, true)}
-    else
-      {:ok, Map.put(s, :is_answer, false)}
-    end
+    {:ok, Map.put(s, :is_answer, cid in get_cids())}
   end
+
   def apply(s) do
     Logger.info "Not an expected answer"
     {:ok, s}

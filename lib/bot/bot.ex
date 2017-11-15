@@ -35,11 +35,11 @@ defmodule DailyBot.Bot do
     answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
   end
 
-  # Add second step
+  # Add's second step
   def handle(_, name, %{is_answer: true, update: %{message: %{text: t, chat: %{id: id}}} = msg}) do
     Middleware.ChatStep.remove_cid(id)
-    Logger.info "Add second step for #{id}, answered: #{t}"
-    answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML"
+    Logger.info "Add's second step for #{id}, answered: #{t}"
+    answer msg, Server.add_to_list(id, t), bot: name, parse_mode: "HTML", reply_markup: %Telex.Model.ReplyKeyboardRemove{remove_keyboard: true}
   end
 
   def handle({:command, "forcedel", %{text: t, chat: %{id: id}} = msg}, name, _) do

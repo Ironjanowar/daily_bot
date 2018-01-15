@@ -18,5 +18,9 @@ mix compile
 
 echo "Running..."
 
-echo -e "\n\nLOG [$(date)]\n" >>$LOGS
-mix run --no-halt >> $LOGS
+if [ -z "$1" ]; then
+    echo -e "\n\nLOG [$(date)]\n" >>$LOGS
+    mix run --no-halt >> $LOGS
+else
+    iex -S mix
+fi

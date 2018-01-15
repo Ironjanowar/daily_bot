@@ -7,22 +7,33 @@ defmodule DailyBot.Bot do
     middlewares: [
       Middleware.Listener,
       Middleware.ChatStep
+    ],
+    commands: [
+      [command: "start", name: :start],
+      [command: "todo", name: :todo],
+      [command: "add", name: :add],
+      [command: "forcedel", name: :forcedel],
+      [command: "del", name: :del],
+      [command: "subscribe", name: :subscribe],
+      [command: "unsubscribe", name: :unsubscribe],
+      [command: "help", name: :help],
+      [command: "donate", name: :donate]
     ]
   use Telex.Dsl
 
   require Logger
 
   def handle({:command, "start", msg}, name, _) do
-    answer msg, "<b>Hello there!</b>\nReady for the daily spam?", bot: name, parse_mode: "HTML"
+    answer "<b>Hello there!</b>\nReady for the daily spam?", parse_mode: "HTML"
   end
 
   def handle({:command, "todo", %{chat: %{id: id}}=msg}, name, _) do
     case Server.get_list(id) do
       {:empty, message} ->
-        answer msg, message, bot: name
+        answer message
       {:ok, message} ->
         markup = Utils.generate_hide_and_del_button()
-        answer msg, message, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: markup, bot: name
+        answer message, parse_mode: "HTML", disable_web_page_preview: true, reply_markup: markup
     end
   end
 

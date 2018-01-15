@@ -7,17 +7,6 @@ defmodule DailyBot.Bot do
     middlewares: [
       Middleware.Listener,
       Middleware.ChatStep
-    ],
-    commands: [
-      [command: "start", name: :start],
-      [command: "todo", name: :todo],
-      [command: "add", name: :add],
-      [command: "forcedel", name: :forcedel],
-      [command: "del", name: :del],
-      [command: "subscribe", name: :subscribe],
-      [command: "unsubscribe", name: :unsubscribe],
-      [command: "help", name: :help],
-      [command: "donate", name: :donate]
     ]
   use Telex.Dsl
 

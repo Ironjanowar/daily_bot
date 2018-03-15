@@ -15,7 +15,7 @@ defmodule DailyBot do
     children = [
       worker(Redix, [[host: rhost, port: rport], [name: :redis, backoff_max: 5_000]]),
       supervisor(Telex, []),
-      supervisor(DailyBot.Bot, [:updates, token]),
+      supervisor(DailyBot.Bot, [:polling, token]),
       worker(Server, []),
       worker(Daily, []),
       worker(Middleware.ChatStep, []),

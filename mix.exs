@@ -2,12 +2,14 @@ defmodule DailyBot.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :daily_bot,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :daily_bot,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -15,8 +17,7 @@ defmodule DailyBot.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger],
-    mod: {DailyBot, []}]
+    [extra_applications: [:logger], mod: {DailyBot, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -33,7 +34,7 @@ defmodule DailyBot.Mixfile do
       {:redix, ">= 0.0.0"},
       {:quantum, ">= 2.1.0-beta.1"},
       {:timex, "~> 3.0"},
-      {:refraner, git: "https://github.com/Ironjanowar/Refraner.git"},
+      # {:refraner, git: "https://github.com/Ironjanowar/Refraner.git"},
       {:telex, git: "https://github.com/rockneurotiko/telex.git", tag: "0.4.0"}
     ]
   end

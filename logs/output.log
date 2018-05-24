@@ -1105,3 +1105,28 @@ LOG [sáb ago  5 13:43:02 CEST 2017]
 13:43:29.335 [info]  Generating del keyboard for 14977303
 
 13:43:30.881 [info]  Retrieving list to 14977303
+
+
+LOG [Thu May 24 17:42:30 CEST 2018]
+
+
+
+LOG [Thu May 24 17:43:22 CEST 2018]
+
+Compiling 8 files (.ex)
+
+== Compilation error in file lib/bot/bot.ex ==
+** (UndefinedFunctionError) function ExGram.Dsl.__using__/1 is undefined or private
+    ExGram.Dsl.__using__([])
+    lib/bot/bot.ex:12: (module)
+    (stdlib) erl_eval.erl:670: :erl_eval.do_apply/6
+
+
+LOG [Thu May 24 17:49:07 CEST 2018]
+
+Compiling 8 files (.ex)
+
+== Compilation error in file lib/bot/bot.ex ==
+** (CompileError) lib/bot/bot.ex:5: undefined function handle/2
+    (stdlib) lists.erl:1338: :lists.foreach/2
+    (stdlib) erl_eval.erl:670: :erl_eval.do_apply/6

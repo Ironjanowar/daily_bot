@@ -2,14 +2,12 @@ defmodule DailyBot.Bot do
   @bot :daily_bot
   def bot(), do: @bot
 
-  use Telex.Bot,
+  use ExGram.Bot,
     name: @bot,
     middlewares: [
       Middleware.Listener,
       Middleware.ChatStep
     ]
-
-  use Telex.Dsl
 
   require Logger
 
@@ -35,7 +33,7 @@ defmodule DailyBot.Bot do
       msg,
       "What do you want to add?",
       bot: name,
-      reply_markup: %Telex.Model.ForceReply{force_reply: true, selective: true},
+      reply_markup: %ExGram.Model.ForceReply{force_reply: true, selective: true},
       reply_to_message_id: mid
     )
   end
@@ -54,7 +52,7 @@ defmodule DailyBot.Bot do
       Server.add_to_list(id, t),
       bot: name,
       parse_mode: "HTML",
-      reply_markup: %Telex.Model.ReplyKeyboardRemove{remove_keyboard: true}
+      reply_markup: %ExGram.Model.ReplyKeyboardRemove{remove_keyboard: true}
     )
   end
 

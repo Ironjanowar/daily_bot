@@ -4,7 +4,8 @@ defmodule Utils do
   def create_inline_button(row) do
     row
     |> Enum.map(fn ops ->
-      Map.merge(%Telex.Model.InlineKeyboardButton{}, Enum.into(ops, %{})) end)
+      Map.merge(%ExGram.Model.InlineKeyboardButton{}, Enum.into(ops, %{}))
+    end)
   end
 
   def create_inline(data \\ [[]]) do
@@ -12,7 +13,7 @@ defmodule Utils do
       data
       |> Enum.map(&Utils.create_inline_button/1)
 
-    %Telex.Model.InlineKeyboardMarkup{inline_keyboard: data}
+    %ExGram.Model.InlineKeyboardMarkup{inline_keyboard: data}
   end
 
   def hash_md5(text) do
@@ -26,8 +27,11 @@ defmodule Utils do
           {:ok, nil} -> :error
           {:ok, elem} -> {:ok, id, URI.decode(elem)}
         end
-      _ -> :error
+
+      _ ->
+        :error
     end
+
     # [id, _] = String.split(hash, ":")
     # {:ok, text} = Redix.command(:redis, ~w(GET #{hash}))
     # {id, text}
@@ -35,22 +39,24 @@ defmodule Utils do
 
   def save_hash(id, text) do
     hash = Utils.hash_md5(text)
-    Logger.info "Saving hash: #{hash} for #{id}"
+    Logger.info("Saving hash: #{hash} for #{id}")
     Redix.command(:redis, ~w(SET #{id}:#{hash} #{URI.encode(text)}))
   end
 
   def del_hash_from_redis(key) do
-    Logger.info "Deleting hash: #{key}"
+    Logger.info("Deleting hash: #{key}")
     Redix.command(:redis, ~w(DEL #{key}))
   end
 
   def generate_del_keyboard(id) do
-    Logger.info "Generating del keyboard for #{id}"
+    Logger.info("Generating del keyboard for #{id}")
 
     Server.redis_get_list(id)
-    |> List.foldl([], fn x,acc -> [[[text: x, callback_data: "del:elem:#{id}:#{hash_md5(x)}"]] | acc] end)
+    |> List.foldl([], fn x, acc ->
+      [[[text: x, callback_data: "del:elem:#{id}:#{hash_md5(x)}"]] | acc]
+    end)
     |> (fn x -> x ++ [[[text: "Done", callback_data: "del:done"]]] end).()
-    |> Utils.create_inline
+    |> Utils.create_inline()
   end
 
   def donation_text() do
@@ -58,7 +64,7 @@ defmodule Utils do
   end
 
   def generate_donation_button() do
-    Utils.create_inline [[[text: "Donate", url: "paypal.me/ironjanowar"]]]
+    Utils.create_inline([[[text: "Donate", url: "paypal.me/ironjanowar"]]])
   end
 
   def extract_username(%{from: %{username: username}}), do: username
@@ -68,10 +74,13 @@ defmodule Utils do
   def extract_text(_), do: "[Message is not a text]"
 
   def generate_hide_and_del_button() do
-    Utils.create_inline [[[text: "Hide", callback_data: "action:hide"]], [[text: "Delete elements", callback_data: "action:delete:elements"]]]
+    Utils.create_inline([
+      [[text: "Hide", callback_data: "action:hide"]],
+      [[text: "Delete elements", callback_data: "action:delete:elements"]]
+    ])
   end
 
   def generate_show_button() do
-    Utils.create_inline [[[text: "Show", callback_data: "action:show"]]]
+    Utils.create_inline([[[text: "Show", callback_data: "action:show"]]])
   end
 end

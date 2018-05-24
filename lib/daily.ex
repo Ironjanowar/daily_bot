@@ -4,11 +4,11 @@ defmodule Daily do
   require Logger
 
   def start_link do
-    GenServer.start_link __MODULE__, :ok, [name: :daily]
+    GenServer.start_link(__MODULE__, :ok, name: :daily)
   end
 
   def init(:ok) do
-    Logger.info "Init Daily module"
+    Logger.info("Init Daily module")
     {:ok, []}
   end
 
@@ -19,11 +19,13 @@ defmodule Daily do
 
   def subscribe(id) do
     case Integer.to_string(id) in get_subscriptors() do
-      true -> "You are already subscribed! 😃"
+      true ->
+        "You are already subscribed! 😃"
+
       false ->
         # Process.send_after(:daily, {:spam, id}, millis_to_next_day())
         Redix.command(:redis, ~w(SADD daily #{id}))
-        Logger.info "User #{id} subscribed to daily messages"
+        Logger.info("User #{id} subscribed to daily messages")
         "❤️ <b>Subscribed</b> to daily reminders! ❤️"
     end
   end
@@ -32,33 +34,30 @@ defmodule Daily do
     case Redix.command(:redis, ~w(SREM daily #{id})) do
       {:ok, 1} ->
         "<b>Unsubscribed</b> from daily reminders... 😢"
+
       {:ok, 0} ->
         "You are not subscribed.\nDo you want to give it a try?\n/subscribe"
     end
   end
 
-  # def build_message(message) do
-  #   #refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
-  #   "Well hello!\nHope you have a great day!\n\n" <> message
-  # end
-
-  # def build_empty_message() do
-  #   #refran = Refraner.get_all_refranes |> (fn x -> x ++ ["No hay que reinventar la rueda, sino hacerla mas redonda."] end).() |> Enum.random
-  #   "Your list is empty!"
-  # end
-
   def build_message({:ok, message}), do: "Well hello!\nHope you have a great day!\n\n" <> message
   def build_message({:empty, _}), do: "Your list is empty!"
 
   def spam() do
-    Logger.info "Sending daily reminders"
-    Daily.get_subscriptors |> Enum.map(&Daily.send_list/1)
+    Logger.info("Sending daily reminders")
+    Daily.get_subscriptors() |> Enum.map(&Daily.send_list/1)
   end
 
   def send_list(id) do
-    message = id |> Server.get_list |> Daily.build_message
+    message = id |> Server.get_list() |> Daily.build_message()
 
     # message = list |> Daily.build_message
-    Telex.send_message(id, message, bot: :daily_bot, parse_mode: "HTML", disable_web_page_preview: true)
+    ExGram.send_message(
+      id,
+      message,
+      bot: :daily_bot,
+      parse_mode: "HTML",
+      disable_web_page_preview: true
+    )
   end
 end

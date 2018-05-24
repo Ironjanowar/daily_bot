@@ -1,6 +1,5 @@
 defmodule DailyBot.Bot do
   @bot :daily_bot
-  def bot(), do: @bot
 
   use ExGram.Bot,
     name: @bot,
@@ -10,6 +9,8 @@ defmodule DailyBot.Bot do
     ]
 
   require Logger
+
+  def bot(), do: @bot
 
   def handle({:command, "start", _msg}, _name, _) do
     answer("<b>Hello there!</b>\nReady for the daily spam?", parse_mode: "HTML")
